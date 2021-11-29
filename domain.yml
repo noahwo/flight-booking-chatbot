@@ -1,0 +1,143 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 600
+  carry_over_slots_to_new_session: true
+
+intents:
+- affirm
+- greet
+- deny
+- goodbye
+- inform_fullname
+- inform_email
+- inform_date
+- inform_id
+- inform_location
+- inform_flight
+- book_flight
+- bot_challenge
+- staffservice
+- cancel_order
+- staff_message
+
+entities:
+- date
+- email
+- fullname
+- id
+- location
+
+slots:
+  departure:
+    type: text
+    influence_conversation: true
+  destination:
+    type: text
+    influence_conversation: true
+  date:
+    type: text
+    influence_conversation: true
+  requested_slot:
+    type: unfeaturized
+    influence_conversation: false
+  flightCode:
+    type: text
+    influence_conversation: true
+  id:
+    type: text
+    influence_conversation: true
+  email:
+    type: text
+    influence_conversation: true
+  fullname:
+    type: text
+    influence_conversation: true
+  price:
+    type: text
+    influence_conversation: true
+
+responses:
+  utter_staff:
+  - text: If you meet some problem or need human services, please enter "I need human service" to contact us!
+  utter_email_for_staff:
+  - text: "Please input your email address again:"
+  utter_cancel_order:
+  - text: Please provide your ID to cancel your order. 
+  utter_get_user_info:
+  - text: Please provide your personal information to book the flight.
+  utter_greet:
+  - text: Hi, Nice to meet you! I'm FlyMe, a chatbot and your flight ticket asisstant. (We mainly provide filght routes Berlin<->Beijing, Singapore->Shanghai, Shanghai->Nanjing, Nanjing->Helsinki, Shanghai->Tokyo, Nanjing->New York, between Dec 20 and Dec 30 in 2021.) Now, try to start with things like "I want to buy a ticket".
+  utter_ask_date:
+  - text: What date would you leave? (yyyy-mm-dd)
+  utter_ask_destination:
+  - text: What is the destination location?
+  utter_ask_departure:
+  - text: What is the location you leave from?
+  utter_flightConfirm:
+  - text: You want to fly from {departure} to {destination}, on {date}, querying flights...
+  - text: Your flight's departure is {departure}, destination is {destination}, date is {date}, querying flights...
+  utter_ordering:
+  - text: Now I am ordering the flight for you.
+  utter_goodbye:
+  - text: Bye
+  - text: See you!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_ask_fullname:
+  - text: May I have your full name?
+  utter_ask_id:
+  - text: Sure, please provide your ID?
+  utter_ask_email:
+  - text: May I know your email address so that I can send you information in time?
+  utter_userinfo:
+  - buttons:
+    - payload: affirm
+      title: Confirm
+    - payload: deny
+      title: Cancel
+    text: 'Please check your information again: your full name is {fullname}, ID is {id}, and email is {email}.'
+  utter_ask_for_message:
+  - text: "Now please type your question here, starting with \"Question: \""
+
+actions:
+- action_cancel_order
+- action_order_flight
+- action_query_flight
+- action_register
+- utter_flightConfirm
+- utter_goodbye
+- utter_greet
+- utter_ordering
+- utter_userinfo
+- utter_userinfo_added
+- utter_your_date
+- utter_your_dep
+- utter_your_dest
+- validate_flight_form
+- action_send_email
+- utter_email_for_staff
+- utter_staff
+
+forms:
+  flight_form:
+    required_slots:
+      departure:
+      - type: from_entity
+        entity: location
+      destination:
+      - type: from_entity
+        entity: location
+      date:
+      - entity: date
+        type: from_entity
+  userinfo_form:
+    required_slots:
+      fullname:
+      - type: from_entity
+        entity: fullname
+      id:
+      - type: from_entity
+        entity: id
+      email:
+      - entity: email
+        type: from_entity

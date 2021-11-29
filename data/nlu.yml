@@ -1,0 +1,149 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - affirm
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: book_flight
+  examples: |
+    - I want to book a flight
+    - I want to buy a flight ticket
+    - I want to buy a ticket
+    - i want to book a flight
+    - book flight
+    - book light
+- intent: cancel_order
+  examples: |
+    - i want to cancel my order
+    - i want to cancel flight
+    - I want to refund my flight
+    - I want to refund the ticket
+- intent: inform_location
+  examples: |
+    - [shanghai](location)
+    - [mango](location)
+    - [jiangning](location)
+    - [Shanghai](location)
+    - [Tokyo](location)
+    - [Nanjing](location)
+    - [Helsinki](location)
+    - [Berlin](location)
+    - [Beijing](location)
+    - [New York](location)
+    - [Tianjin](location)
+    - [Hong Kong](location)
+    - [Singapore](location)
+    - [tokyo](location)
+    - [nanjing](location)
+    - [helsinki](location)
+    - [berlin](location)
+    - [beijing](location)
+    - [new York](location)
+    - [tianjin](location)
+    - [hong Kong](location)
+    - [singapore](location)
+    - [Helsinki](location)
+    - [Nanjing](location)
+    - [helsinki](location)
+    - [nanjing](location)
+- intent: inform_date
+  examples: |
+    - on [25 july, 2021](date)
+    - on [25 july 2021](date)
+    - [25-8-2021](date)
+    - [2021-07-25](date)
+    - [25 september](date)
+    - [25 sept](date)
+    - [tomorrow](date)
+    - [today](date)
+    - [friday](date)
+    - [monday](date)
+    - [next monday](date)
+    - [next friday](date)
+    - [next tuesday](date)
+    - [2021-12-24](date)
+    - [2021-12-24](date)
+- intent: inform_fullname
+  examples: |
+    - [lv zonsgeng](fullname)
+    - [wu guanghan](fullname)
+    - [guang han wu](fullname)
+    - [sam yang](fullname)
+    - [WU ganghan](fullname)
+    - [Li yun](fullname)
+    - [Zhou]{"entity": "location", "role": "departure"} [Xinyuan]{"entity": "location", "role": "destination"}
+    - [Wu Guanghan](fullname)
+    - [Wu Ganghan](fullname)
+    - [Wu guanghan](fullname)
+- intent: inform_id
+  examples: |
+    - [2345234592634](id)
+    - [sfg12452346235](id)
+    - [1235414s523xc](id)
+    - [qx487474487234](id)
+    - [373947485947383](id)
+    - [3837h303uwe](id)
+    - [34567345634566](id)
+    - [182518726978346X](id)
+    - [nje1231455554](id)
+    - [2398748235678](id)
+    - [2342345jh](id)
+- intent: inform_email
+  examples: |
+    - [guanghan.wu@out.com](email)
+    - [lihuang@ink.edu](email)
+    - [jackielee@ckk.se](email)
+    - [guanghan.wu@outlook.com](email)
+    - [iudainan@qq.com](email)
+    - [alex.wu@gmail.com](email)
+    - [157004861@qq.com](email)
+    - [157004861@qq.com](email)
+- intent: staffservice
+  examples: |
+    - i need to talk to human 
+    - i want to talk to a real human 
+    - human service
+    - staff service
+    - i need to contact human
+    #TODO continue to test the functionality, send email
+- intent: staff_message
+  examples: |
+    - question: i want to meet your manager
+    - Question: asfgsdfgsdfgsdfg
+    - Question: do you asdfa asda?
+    - Question: i want to meet your manager
+- intent: goodbye
+  examples: |
+    - bye
+    - good bye
+    - goodbye
+    - see you

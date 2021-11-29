@@ -1,0 +1,47 @@
+version: "2.0"
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: activate flight form
+  steps:
+  - intent: book_flight
+  - action: flight_form
+  - active_loop: flight_form
+
+- rule: submit flight form
+  condition: 
+  - active_loop: flight_form
+  steps:
+  - action: flight_form
+  - active_loop: null
+  - slot_was_set:
+    - required_slots: null
+  - action: utter_flightConfirm
+  - action: action_query_flight
+
+- rule: Avtive userinfo_form
+  steps:
+  - action: action_query_flight
+  - intent: affirm
+  - action: utter_get_user_info
+  - action: userinfo_form
+  - active_loop: userinfo_form
+
+- rule: submit userinfo_form
+  condition:
+  - active_loop: userinfo_form
+  steps:
+  - action: userinfo_form
+  - active_loop: null
+  - slot_was_set:
+    - required_slots: null
+  - action: action_register

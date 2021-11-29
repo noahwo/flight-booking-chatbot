@@ -1,0 +1,32 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: interactive_story_1
+  steps:
+  - action: action_register
+  - intent: affirm
+  - action: action_order_flight
+  - intent: affirm
+
+- story: staffservice
+  steps:
+  - intent: staffservice
+  - action: utter_email_for_staff
+  - intent: inform_email
+  - action: utter_ask_for_message
+  - intent: staff_message
+  - action: action_send_email
+
+- story: cancel order
+  steps:
+  - intent: cancel_order
+  - action: utter_cancel_order
+  - intent: inform_id
+  - action: action_cancel_order
+
