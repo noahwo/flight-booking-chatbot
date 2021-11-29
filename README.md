@@ -28,8 +28,7 @@ Create a virtual env of Python 3.8, and activate is. Note that every step later 
 
 The following versions of packages were installed for development
 
-````bash
-```
+```bash
 pip3 install SQLAlchemy==1.3.22
 pip3 install sanic-jwt==1.6.0
 pip3 install rasa==2.8.2
@@ -39,7 +38,6 @@ sudo apt install gcc
 pip3 install rasa-x==0.42.0 --extra-index-url https://pypi.rasa.com/simple
 
 ```
-````
 
 ##### Note of versions
 
